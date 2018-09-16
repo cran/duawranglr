@@ -1,0 +1,113 @@
+---
+title: Motivation for duawranglr
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Motivation for duawranglr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+options(width = 90)
+knitr::opts_chunk$set(collapse = TRUE, comment = NA)
+```
+
+The guiding principle behind duawranglr is to make it easier for
+organizations to share data that contain protected elements and/or
+personally idenfiable information (PII) with researchers. There are
+two key problems this package attempts to solve:
+
+1. Data owners and reseachers may wish to collaborate on multiple
+projects, each with a different level of data security required;
+executing a unique data usage agreement (DUA) for each project can be
+time consuming and inefficient.  
+2. Administrators tasked with approving data requests do not always
+have the time or technical proficiency to closely review the code that
+reads, subsets, filters, and deidentifies data files according to a
+DUA.  
+
+## Data usage agreements
+
+The duawranglr package is designed with the idea that rather than
+setting a new DUA for each project in an ongoing collaboration between
+researchers and data partners, two things will happen instead:  
+
+1. An overarching DUA will be signed that establishes a general
+   framework for collaboration with multiple pre-established levels of
+   data restriction; for each new project, these levels (*e.g.*, I, II,
+   & III) are invoked and used to determine which variables may be
+   shared, with whom, and under what conditions according to the DUA.  
+2. An associated crosswalk file---which can be an easy-to-modify and
+   share spreadsheet---will list the names of data elements that are
+   restricted at each level. This crosswalk is then used to clearly
+   transform raw restricted data files into those that can be shared
+   under the conditions of the DUA.
+
+## An example DUA crosswalk
+
+An example crosswalk file (*e.g.* a CSV file or Excel spreadsheet)
+might look like this:  
+
+|level\_i|level\_ii|level\_iii|
+|:------:|:-------:|:--------:|
+|sid|sid|sid|
+|sname|sname|sname|
+|dob|dob||
+|gender||
+|raceeth||
+|tid||
+|tname|tname|tname|
+|zip|zip|
+
+Each column represents a restriction level---`level_i`, `level_ii`, or
+`level_iii`---along with the corresponding data element names that are
+restricted at that level. In this crosswalk, like variable names have
+been aligned so that they are easier to compare, but the elements can
+be included in whichever way makes most sense to the data
+administrator.
+
+The restriction level names are arbitrary as far as the package goes,
+but in conjunction with a DUA, they have meaning:
+
+* **Level I**: The first level produces data sets that can be shared more
+  widely, but at the cost of losing access to many data elements in
+  the final data set.
+* **Level II:** The second level has slightly fewer data element
+  restrictions, making it better for more research projects. Data
+  produced at this level likely come with more sharing and storage
+  restrictions than those produced at the first level.
+* **Level III:** The third level has the fewest restrictions: only names
+  and the student's ID cannot be contained in the final data set. Data
+  produced at this level will have the strongest restrictions on who
+  can use it an how it is stored by the research team.
+  
+The benefit of this level-plus-crosswalk system is two-fold:
+
+1. Data element restrictions are clearly defined for each level, which
+   in turn has its own clearly defined scope for data storage and
+   sharing. When starting a new project under the scope of the DUA,
+   researchers and data partners need only to assign a proper level
+   based on the needs of the analyses.
+2. Because the crosswalk is a simple tabular file, data element names
+   can easily be added or deleted by data partners who do not
+   typically use data analysis software. This helps keep the process
+   transparent for all team members.
+
+## What duawranglr does **not** do
+
+Functions in the package do not  
+
+1. Replace existing data wrangling functions  
+2. Guarantee data security  
+
+There are many packages, such as those in the
+[tidyverse](https://www.tidyverse.org) suite, that are already well
+suited to data wrangling tasks. There is no need to replicate those
+functions in this package.
+
+It also should go without saying, but users can simply *not use*
+functions in this package when attempting to secure restricted
+data. What this package does is offer a framework and a set of useful
+functions that, when followed, help users secure data in a clear and
+replicable manner that allows data administrators to more easily
+participate in the process.
