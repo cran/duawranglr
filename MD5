@@ -1,7 +1,7 @@
-605b4fc915789b72b78e29a7516da8a8 *DESCRIPTION
+34f5774330a2483e575aa7cd6f0e6592 *DESCRIPTION
 f6f242ea2f370fc1cf3915d65eea931b *LICENSE
 d871e5a372cf1ee3c820c4f7bfee8e0c *NAMESPACE
-59ab19c1e7006b15463c9d81ec3c7550 *NEWS.md
+729c9b494b87fae87363592e9a7cb303 *NEWS.md
 221af957c51aa8e763c3ee42856431c8 *R/check.R
 584637070e0f445d7c79e1005ee6212e *R/deidentify.R
 195743b11ef34fa3195a0a51106e4047 *R/dua.R
@@ -10,13 +10,13 @@ c69e724a6d6655e5258e51182c67dce7 *R/duawrangler.R
 6350929302c7c6f073fc1bb46832addc *R/template.R
 783d4062171da827a6d5120c83b61859 *R/utils.R
 db9821634b35ebdd8d86420ba8c62238 *R/write.R
-3100bd257e1d4d9c0cfad158db1ab200 *build/vignette.rds
+c690a8006bf7f7fc04293a50f8ba8ca6 *build/vignette.rds
 f42f87ccd044fc24dba1332afa3bc719 *inst/doc/duawranglr.R
 474e1c611d25ed4d13d06862852a10e3 *inst/doc/duawranglr.Rmd
-06d45ca732dcedd12bb10720322e732d *inst/doc/duawranglr.html
+a549c5250fb2ff498f6ef5197fc4420a *inst/doc/duawranglr.html
 fdb830c47ba985d241f3ac8eddcc91d6 *inst/doc/securing_data.R
-d863c1673f468c1d3508f474a0bbe6d7 *inst/doc/securing_data.Rmd
-2225f61e6ff8892d87b14e8a3645a874 *inst/doc/securing_data.html
+f5eb64a23c1bde0ad89fe42f5ad013e8 *inst/doc/securing_data.Rmd
+772f1e3abf791a200d18e1336f1608e6 *inst/doc/securing_data.html
 c205576fe31d834ee8d6e4e29c86312e *inst/extdata/admin_data.csv
 93918a092664a5d06af7f9d25460b117 *inst/extdata/dua_cw.csv
 58d468ad6f9296a308d93f46d5fbc9b9 *man/check_dua_restrictions.Rd
@@ -60,4 +60,4 @@ ba0f4c620a25d35dc7a16e7ee03acc5b *tests/testthat/testdata/dua_one.xls
 af586870d619ab1705f92a271f7514bd *tests/testthat/testdata/dua_one.xlsx
 6720b78b6ba13e6e90f41f76cdc2a4ed *tests/testthat/testdata/dua_two.csv
 474e1c611d25ed4d13d06862852a10e3 *vignettes/duawranglr.Rmd
-d863c1673f468c1d3508f474a0bbe6d7 *vignettes/securing_data.Rmd
+f5eb64a23c1bde0ad89fe42f5ad013e8 *vignettes/securing_data.Rmd
