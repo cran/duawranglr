@@ -1,331 +1,316 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<title>Data usage agreements</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
 
 
 
-<title>Motivation for duawranglr</title>
 
 
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
 
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
 
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
 
+h1 {
+   font-size:2.2em;
+}
 
-<style type="text/css">body {
-background-color: #fff;
-margin: 1em auto;
-max-width: 700px;
-overflow: visible;
-padding-left: 2em;
-padding-right: 2em;
-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-font-size: 14px;
-line-height: 1.35;
+h2 {
+   font-size:1.8em;
 }
-#header {
-text-align: center;
+
+h3 {
+   font-size:1.4em;
 }
-#TOC {
-clear: both;
-margin: 0 0 10px 10px;
-padding: 4px;
-width: 400px;
-border: 1px solid #CCCCCC;
-border-radius: 5px;
-background-color: #f6f6f6;
-font-size: 13px;
-line-height: 1.3;
+
+h4 {
+   font-size:1.0em;
 }
-#TOC .toctitle {
-font-weight: bold;
-font-size: 15px;
-margin-left: 5px;
+
+h5 {
+   font-size:0.9em;
 }
-#TOC ul {
-padding-left: 40px;
-margin-left: -1.5em;
-margin-top: 5px;
-margin-bottom: 5px;
+
+h6 {
+   font-size:0.8em;
 }
-#TOC ul ul {
-margin-left: -2em;
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
 }
-#TOC li {
-line-height: 16px;
-}
-table {
-margin: 1em auto;
-border-width: 1px;
-border-color: #DDDDDD;
-border-style: outset;
-border-collapse: collapse;
-}
-table th {
-border-width: 2px;
-padding: 5px;
-border-style: inset;
-}
-table td {
-border-width: 1px;
-border-style: inset;
-line-height: 18px;
-padding: 5px 5px;
-}
-table, table th, table td {
-border-left-style: none;
-border-right-style: none;
-}
-table thead, table tr.even {
-background-color: #f7f7f7;
-}
-p {
-margin: 0.5em 0;
-}
-blockquote {
-background-color: #f6f6f6;
-padding: 0.25em 0.75em;
-}
-hr {
-border-style: solid;
-border: none;
-border-top: 1px solid #777;
-margin: 28px 0;
-}
-dl {
-margin-left: 0;
-}
-dl dd {
-margin-bottom: 13px;
-margin-left: 13px;
-}
-dl dt {
-font-weight: bold;
-}
-ul {
-margin-top: 0;
-}
-ul li {
-list-style: circle outside;
-}
-ul ul {
-margin-bottom: 0;
-}
-pre, code {
-background-color: #f7f7f7;
-border-radius: 3px;
-color: #333;
-white-space: pre-wrap; 
+
+pre, img {
+  max-width: 100%;
 }
 pre {
-border-radius: 3px;
-margin: 5px 0px 10px 0px;
-padding: 10px;
+  overflow-x: auto;
 }
-pre:not([class]) {
-background-color: #f7f7f7;
+pre code {
+   display: block; padding: 0.5em;
 }
+
 code {
-font-family: Consolas, Monaco, 'Courier New', monospace;
-font-size: 85%;
+  font-size: 92%;
+  border: 1px solid #ccc;
 }
-p > code, li > code {
-padding: 2px 0px;
-}
-div.figure {
-text-align: center;
-}
-img {
-background-color: #FFFFFF;
-padding: 2px;
-border: 1px solid #DDDDDD;
-border-radius: 3px;
-border: 1px solid #CCCCCC;
-margin: 0 5px;
-}
-h1 {
-margin-top: 0;
-font-size: 35px;
-line-height: 40px;
-}
-h2 {
-border-bottom: 4px solid #f7f7f7;
-padding-top: 10px;
-padding-bottom: 2px;
-font-size: 145%;
-}
-h3 {
-border-bottom: 2px solid #f7f7f7;
-padding-top: 10px;
-font-size: 120%;
-}
-h4 {
-border-bottom: 1px solid #f7f7f7;
-margin-left: 8px;
-font-size: 105%;
-}
-h5, h6 {
-border-bottom: 1px solid #ccc;
-font-size: 105%;
-}
-a {
-color: #0033dd;
-text-decoration: none;
-}
-a:hover {
-color: #6666ff; }
-a:visited {
-color: #800080; }
-a:visited:hover {
-color: #BB00BB; }
-a[href^="http:"] {
-text-decoration: underline; }
-a[href^="https:"] {
-text-decoration: underline; }
 
-code > span.kw { color: #555; font-weight: bold; } 
-code > span.dt { color: #902000; } 
-code > span.dv { color: #40a070; } 
-code > span.bn { color: #d14; } 
-code > span.fl { color: #d14; } 
-code > span.ch { color: #d14; } 
-code > span.st { color: #d14; } 
-code > span.co { color: #888888; font-style: italic; } 
-code > span.ot { color: #007020; } 
-code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
 </style>
-
 
 
 
 </head>
 
 <body>
+<p>The guiding principle behind duawranglr is to make it easier for
+organizations to share data that contain protected elements and/or
+personally idenfiable information (PII) with researchers. There are
+two key problems this package attempts to solve:</p>
 
-
-
-
-<h1 class="title toc-ignore">Motivation for duawranglr</h1>
-
-
-
-<p>The guiding principle behind duawranglr is to make it easier for organizations to share data that contain protected elements and/or personally idenfiable information (PII) with researchers. There are two key problems this package attempts to solve:</p>
-<ol style="list-style-type: decimal">
-<li>Data owners and reseachers may wish to collaborate on multiple projects, each with a different level of data security required; executing a unique data usage agreement (DUA) for each project can be time consuming and inefficient.<br />
-</li>
-<li>Administrators tasked with approving data requests do not always have the time or technical proficiency to closely review the code that reads, subsets, filters, and deidentifies data files according to a DUA.</li>
+<ol>
+<li>Data owners and reseachers may wish to collaborate on multiple
+projects, each with a different level of data security required;
+executing a unique data usage agreement (DUA) for each project can be
+time consuming and inefficient.<br/></li>
+<li>Administrators tasked with approving data requests do not always
+have the time or technical proficiency to closely review the code that
+reads, subsets, filters, and deidentifies data files according to a
+DUA.<br/></li>
 </ol>
-<div id="data-usage-agreements" class="section level2">
+
 <h2>Data usage agreements</h2>
-<p>The duawranglr package is designed with the idea that rather than setting a new DUA for each project in an ongoing collaboration between researchers and data partners, two things will happen instead:</p>
-<ol style="list-style-type: decimal">
-<li>An overarching DUA will be signed that establishes a general framework for collaboration with multiple pre-established levels of data restriction; for each new project, these levels (<em>e.g.</em>, I, II, &amp; III) are invoked and used to determine which variables may be shared, with whom, and under what conditions according to the DUA.<br />
-</li>
-<li>An associated crosswalk file—which can be an easy-to-modify and share spreadsheet—will list the names of data elements that are restricted at each level. This crosswalk is then used to clearly transform raw restricted data files into those that can be shared under the conditions of the DUA.</li>
+
+<p>The duawranglr package is designed with the idea that rather than
+setting a new DUA for each project in an ongoing collaboration between
+researchers and data partners, two things will happen instead:  </p>
+
+<ol>
+<li>An overarching DUA will be signed that establishes a general
+framework for collaboration with multiple pre-established levels of
+data restriction; for each new project, these levels (<em>e.g.</em>, I, II,
+&amp; III) are invoked and used to determine which variables may be
+shared, with whom, and under what conditions according to the DUA.<br/></li>
+<li>An associated crosswalk file&mdash;which can be an easy-to-modify and
+share spreadsheet&mdash;will list the names of data elements that are
+restricted at each level. This crosswalk is then used to clearly
+transform raw restricted data files into those that can be shared
+under the conditions of the DUA.</li>
 </ol>
-</div>
-<div id="an-example-dua-crosswalk" class="section level2">
+
 <h2>An example DUA crosswalk</h2>
-<p>An example crosswalk file (<em>e.g.</em> a CSV file or Excel spreadsheet) might look like this:</p>
-<table>
-<thead>
-<tr class="header">
+
+<p>An example crosswalk file (<em>e.g.</em> a CSV file or Excel spreadsheet)
+might look like this:  </p>
+
+<table><thead>
+<tr>
 <th align="center">level_i</th>
 <th align="center">level_ii</th>
 <th align="center">level_iii</th>
 </tr>
-</thead>
-<tbody>
-<tr class="odd">
+</thead><tbody>
+<tr>
 <td align="center">sid</td>
 <td align="center">sid</td>
 <td align="center">sid</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">sname</td>
 <td align="center">sname</td>
 <td align="center">sname</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="center">dob</td>
 <td align="center">dob</td>
 <td align="center"></td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">gender</td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="center">raceeth</td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">tid</td>
 <td align="center"></td>
 <td align="center"></td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="center">tname</td>
 <td align="center">tname</td>
 <td align="center">tname</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">zip</td>
 <td align="center">zip</td>
 <td align="center"></td>
 </tr>
-</tbody>
-</table>
-<p>Each column represents a restriction level—<code>level_i</code>, <code>level_ii</code>, or <code>level_iii</code>—along with the corresponding data element names that are restricted at that level. In this crosswalk, like variable names have been aligned so that they are easier to compare, but the elements can be included in whichever way makes most sense to the data administrator.</p>
-<p>The restriction level names are arbitrary as far as the package goes, but in conjunction with a DUA, they have meaning:</p>
+</tbody></table>
+
+<p>Each column represents a restriction level&mdash;<code>level_i</code>, <code>level_ii</code>, or
+<code>level_iii</code>&mdash;along with the corresponding data element names that are
+restricted at that level. In this crosswalk, like variable names have
+been aligned so that they are easier to compare, but the elements can
+be included in whichever way makes most sense to the data
+administrator.</p>
+
+<p>The restriction level names are arbitrary as far as the package goes,
+but in conjunction with a DUA, they have meaning:</p>
+
 <ul>
-<li><strong>Level I</strong>: The first level produces data sets that can be shared more widely, but at the cost of losing access to many data elements in the final data set.</li>
-<li><strong>Level II:</strong> The second level has slightly fewer data element restrictions, making it better for more research projects. Data produced at this level likely come with more sharing and storage restrictions than those produced at the first level.</li>
-<li><strong>Level III:</strong> The third level has the fewest restrictions: only names and the student’s ID cannot be contained in the final data set. Data produced at this level will have the strongest restrictions on who can use it an how it is stored by the research team.</li>
+<li><strong>Level I</strong>: The first level produces data sets that can be shared more
+widely, but at the cost of losing access to many data elements in
+the final data set.</li>
+<li><strong>Level II:</strong> The second level has slightly fewer data element
+restrictions, making it better for more research projects. Data
+produced at this level likely come with more sharing and storage
+restrictions than those produced at the first level.</li>
+<li><strong>Level III:</strong> The third level has the fewest restrictions: only names
+and the student&#39;s ID cannot be contained in the final data set. Data
+produced at this level will have the strongest restrictions on who
+can use it an how it is stored by the research team.</li>
 </ul>
+
 <p>The benefit of this level-plus-crosswalk system is two-fold:</p>
-<ol style="list-style-type: decimal">
-<li>Data element restrictions are clearly defined for each level, which in turn has its own clearly defined scope for data storage and sharing. When starting a new project under the scope of the DUA, researchers and data partners need only to assign a proper level based on the needs of the analyses.</li>
-<li>Because the crosswalk is a simple tabular file, data element names can easily be added or deleted by data partners who do not typically use data analysis software. This helps keep the process transparent for all team members.</li>
+
+<ol>
+<li>Data element restrictions are clearly defined for each level, which
+in turn has its own clearly defined scope for data storage and
+sharing. When starting a new project under the scope of the DUA,
+researchers and data partners need only to assign a proper level
+based on the needs of the analyses.</li>
+<li>Because the crosswalk is a simple tabular file, data element names
+can easily be added or deleted by data partners who do not
+typically use data analysis software. This helps keep the process
+transparent for all team members.</li>
 </ol>
-</div>
-<div id="what-duawranglr-does-not-do" class="section level2">
+
 <h2>What duawranglr does <strong>not</strong> do</h2>
-<p>Functions in the package do not</p>
-<ol style="list-style-type: decimal">
-<li>Replace existing data wrangling functions<br />
-</li>
-<li>Guarantee data security</li>
+
+<p>Functions in the package do not  </p>
+
+<ol>
+<li>Replace existing data wrangling functions<br/></li>
+<li>Guarantee data security<br/></li>
 </ol>
-<p>There are many packages, such as those in the <a href="https://www.tidyverse.org">tidyverse</a> suite, that are already well suited to data wrangling tasks. There is no need to replicate those functions in this package.</p>
-<p>It also should go without saying, but users can simply <em>not use</em> functions in this package when attempting to secure restricted data. What this package does is offer a framework and a set of useful functions that, when followed, help users secure data in a clear and replicable manner that allows data administrators to more easily participate in the process.</p>
-</div>
 
+<p>There are many packages, such as those in the
+<a href="https://www.tidyverse.org">tidyverse</a> suite, that are already well
+suited to data wrangling tasks. There is no need to replicate those
+functions in this package.</p>
 
-
-<!-- code folding -->
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
+<p>It also should go without saying, but users can simply <em>not use</em>
+functions in this package when attempting to secure restricted
+data. What this package does is offer a framework and a set of useful
+functions that, when followed, help users secure data in a clear and
+replicable manner that allows data administrators to more easily
+participate in the process.</p>
 
 </body>
+
 </html>

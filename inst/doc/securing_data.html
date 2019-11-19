@@ -1,318 +1,218 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-<meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<title>Administrative file to be wrangled</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
-<title>Securing data with duawranglr</title>
-
-
-
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+};
+</script>
 
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
 </style>
-<script>
-// apply pandoc div.sourceCode style to pre.sourceCode instead
-(function() {
-  var sheets = document.styleSheets;
-  for (var i = 0; i < sheets.length; i++) {
-    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
-    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
-    for (var j = 0; j < rules.length; j++) {
-      var rule = rules[j];
-      // check if there is a div.sourceCode rule
-      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
-      var style = rule.style.cssText;
-      // check if color or background-color is set
-      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
-      // replace div.sourceCode by a pre.sourceCode rule
-      sheets[i].deleteRule(j);
-      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
-    }
-  }
-})();
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
 </script>
 
 
 
-<style type="text/css">body {
-background-color: #fff;
-margin: 1em auto;
-max-width: 700px;
-overflow: visible;
-padding-left: 2em;
-padding-right: 2em;
-font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-font-size: 14px;
-line-height: 1.35;
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
 }
-#header {
-text-align: center;
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
 }
-#TOC {
-clear: both;
-margin: 0 0 10px 10px;
-padding: 4px;
-width: 400px;
-border: 1px solid #CCCCCC;
-border-radius: 5px;
-background-color: #f6f6f6;
-font-size: 13px;
-line-height: 1.3;
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
 }
-#TOC .toctitle {
-font-weight: bold;
-font-size: 15px;
-margin-left: 5px;
+
+h1 {
+   font-size:2.2em;
 }
-#TOC ul {
-padding-left: 40px;
-margin-left: -1.5em;
-margin-top: 5px;
-margin-bottom: 5px;
+
+h2 {
+   font-size:1.8em;
 }
-#TOC ul ul {
-margin-left: -2em;
+
+h3 {
+   font-size:1.4em;
 }
-#TOC li {
-line-height: 16px;
+
+h4 {
+   font-size:1.0em;
 }
-table {
-margin: 1em auto;
-border-width: 1px;
-border-color: #DDDDDD;
-border-style: outset;
-border-collapse: collapse;
+
+h5 {
+   font-size:0.9em;
 }
-table th {
-border-width: 2px;
-padding: 5px;
-border-style: inset;
+
+h6 {
+   font-size:0.8em;
 }
-table td {
-border-width: 1px;
-border-style: inset;
-line-height: 18px;
-padding: 5px 5px;
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
 }
-table, table th, table td {
-border-left-style: none;
-border-right-style: none;
-}
-table thead, table tr.even {
-background-color: #f7f7f7;
-}
-p {
-margin: 0.5em 0;
-}
-blockquote {
-background-color: #f6f6f6;
-padding: 0.25em 0.75em;
-}
-hr {
-border-style: solid;
-border: none;
-border-top: 1px solid #777;
-margin: 28px 0;
-}
-dl {
-margin-left: 0;
-}
-dl dd {
-margin-bottom: 13px;
-margin-left: 13px;
-}
-dl dt {
-font-weight: bold;
-}
-ul {
-margin-top: 0;
-}
-ul li {
-list-style: circle outside;
-}
-ul ul {
-margin-bottom: 0;
-}
-pre, code {
-background-color: #f7f7f7;
-border-radius: 3px;
-color: #333;
-white-space: pre-wrap; 
+
+pre, img {
+  max-width: 100%;
 }
 pre {
-border-radius: 3px;
-margin: 5px 0px 10px 0px;
-padding: 10px;
+  overflow-x: auto;
 }
-pre:not([class]) {
-background-color: #f7f7f7;
+pre code {
+   display: block; padding: 0.5em;
 }
+
 code {
-font-family: Consolas, Monaco, 'Courier New', monospace;
-font-size: 85%;
+  font-size: 92%;
+  border: 1px solid #ccc;
 }
-p > code, li > code {
-padding: 2px 0px;
-}
-div.figure {
-text-align: center;
-}
-img {
-background-color: #FFFFFF;
-padding: 2px;
-border: 1px solid #DDDDDD;
-border-radius: 3px;
-border: 1px solid #CCCCCC;
-margin: 0 5px;
-}
-h1 {
-margin-top: 0;
-font-size: 35px;
-line-height: 40px;
-}
-h2 {
-border-bottom: 4px solid #f7f7f7;
-padding-top: 10px;
-padding-bottom: 2px;
-font-size: 145%;
-}
-h3 {
-border-bottom: 2px solid #f7f7f7;
-padding-top: 10px;
-font-size: 120%;
-}
-h4 {
-border-bottom: 1px solid #f7f7f7;
-margin-left: 8px;
-font-size: 105%;
-}
-h5, h6 {
-border-bottom: 1px solid #ccc;
-font-size: 105%;
-}
-a {
-color: #0033dd;
-text-decoration: none;
-}
-a:hover {
-color: #6666ff; }
-a:visited {
-color: #800080; }
-a:visited:hover {
-color: #BB00BB; }
-a[href^="http:"] {
-text-decoration: underline; }
-a[href^="https:"] {
-text-decoration: underline; }
 
-code > span.kw { color: #555; font-weight: bold; } 
-code > span.dt { color: #902000; } 
-code > span.dv { color: #40a070; } 
-code > span.bn { color: #d14; } 
-code > span.fl { color: #d14; } 
-code > span.ch { color: #d14; } 
-code > span.st { color: #d14; } 
-code > span.co { color: #888888; font-style: italic; } 
-code > span.ot { color: #007020; } 
-code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
 </style>
-
 
 
 
 </head>
 
 <body>
+<p>This vignette walks through the process for using duawranglr. It
+assumes that the data administrator and researcher have executed a
+data usage agreement (DUA) with three potential levels of data
+restrictions and created a crosswalk spreadsheet in Excel.</p>
 
-
-
-
-<h1 class="title toc-ignore">Securing data with duawranglr</h1>
-
-
-
-<p>This vignette walks through the process for using duawranglr. It assumes that the data administrator and researcher have executed a data usage agreement (DUA) with three potential levels of data restrictions and created a crosswalk spreadsheet in Excel.</p>
-<div id="administrative-file-to-be-wrangled" class="section level2">
 <h2>Administrative file to be wrangled</h2>
-<p>The raw administrative data file that needs to be processed looks like this:</p>
-<table>
-<thead>
-<tr class="header">
+
+<p>The raw administrative data file that needs to be processed looks like
+this:  </p>
+
+<table><thead>
+<tr>
 <th align="center">sid</th>
 <th align="center">sname</th>
 <th align="center">dob</th>
@@ -324,9 +224,8 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <th align="center">mathscr</th>
 <th align="center">readscr</th>
 </tr>
-</thead>
-<tbody>
-<tr class="odd">
+</thead><tbody>
+<tr>
 <td align="center">000-00-0001</td>
 <td align="center">Schaefer</td>
 <td align="center">19900114</td>
@@ -338,7 +237,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="center">515</td>
 <td align="center">496</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">000-00-0002</td>
 <td align="center">Hodges</td>
 <td align="center">19900225</td>
@@ -350,7 +249,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="center">488</td>
 <td align="center">489</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="center">000-00-0003</td>
 <td align="center">Kirby</td>
 <td align="center">19900305</td>
@@ -362,7 +261,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="center">522</td>
 <td align="center">498</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">000-00-0004</td>
 <td align="center">Estrada</td>
 <td align="center">19900419</td>
@@ -374,7 +273,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="center">516</td>
 <td align="center">524</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="center">000-00-0005</td>
 <td align="center">Nielsen</td>
 <td align="center">19900530</td>
@@ -386,7 +285,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="center">483</td>
 <td align="center">509</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">000-00-0006</td>
 <td align="center">Dean</td>
 <td align="center">19900621</td>
@@ -398,7 +297,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="center">503</td>
 <td align="center">523</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="center">000-00-0007</td>
 <td align="center">Hickman</td>
 <td align="center">19900712</td>
@@ -410,7 +309,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="center">539</td>
 <td align="center">509</td>
 </tr>
-<tr class="even">
+<tr>
 <td align="center">000-00-0008</td>
 <td align="center">Bryant</td>
 <td align="center">19900826</td>
@@ -422,7 +321,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="center">499</td>
 <td align="center">490</td>
 </tr>
-<tr class="odd">
+<tr>
 <td align="center">000-00-0009</td>
 <td align="center">Lynch</td>
 <td align="center">19900902</td>
@@ -434,147 +333,197 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="center">499</td>
 <td align="center">493</td>
 </tr>
-</tbody>
-</table>
-<p>And we have a codebook:</p>
+</tbody></table>
+
+<p>And we have a codebook:  </p>
+
 <ul>
-<li><code>sid</code>: Student social security number<br />
-</li>
-<li><code>sname</code>: Student’s last name<br />
-</li>
-<li><code>dob</code>: Student’s date of birth<br />
-</li>
-<li><code>gender</code>: Indicator for student gender identification<br />
-</li>
-<li><code>raceeth</code>: Factor variable indicatings student’s racial/ethnic identification<br />
-</li>
-<li><code>tid</code>: ID variable for student’s teacher<br />
-</li>
-<li><code>tname</code>: Last name of student’s teacher<br />
-</li>
-<li><code>zip</code>: Student’s home address zip code<br />
-</li>
-<li><code>mathscr</code>: Student’s end-of-year test math score<br />
-</li>
-<li><code>readscr</code>: Student’s end-of-year test reading score</li>
+<li><code>sid</code>: Student social security number<br/></li>
+<li><code>sname</code>: Student&#39;s last name<br/></li>
+<li><code>dob</code>: Student&#39;s date of birth<br/></li>
+<li><code>gender</code>: Indicator for student gender identification<br/></li>
+<li><code>raceeth</code>: Factor variable indicatings student&#39;s racial/ethnic
+identification<br/></li>
+<li><code>tid</code>: ID variable for student&#39;s teacher<br/></li>
+<li><code>tname</code>: Last name of student&#39;s teacher<br/></li>
+<li><code>zip</code>: Student&#39;s home address zip code<br/></li>
+<li><code>mathscr</code>: Student&#39;s end-of-year test math score<br/></li>
+<li><code>readscr</code>: Student&#39;s end-of-year test reading score<br/></li>
 </ul>
-<p>The <code>admin_data.csv</code> file contains observations for 9 students and has 10 variables associated with each observation. Of these, 1 uniquely identifies each student, 6 are associated with the student’s personal characteristics, 2 with each student’s teacher, and 2 with the student’s test scores in reading and math.</p>
-<p>It appears that the school uses the student’s social security number to uniquely identify each student. As researchers interested in test scores, we have no need for this highly protected data element other than for its ability to uniquely identify a student or allow linking to other records. Since we do not need to link to other records at the moment, any unique number or string will work for our purposes. Similarly, we don’t really need the student’s last name.</p>
-<p>Besides math (<code>mathscr</code>) and reading (<code>readscr</code>) scores, we may be interested in some of the other covariates. It’s likely that many of these data elements, however, also carry restrictions of varying severity. For example, the school may be able to share the student’s race/ethnicity and gender (provided the student is not otherwise identified) with most approved researchers, but can only share teachers’ names (<code>tid</code>) under more tightly restricted scenarios.</p>
+
+<p>The <code>admin_data.csv</code> file contains observations for 9 students and has 10
+variables associated with each observation. Of these, 1 uniquely
+identifies each student, 6 are associated with the student&#39;s personal
+characteristics, 2 with each student&#39;s teacher, and 2 with the
+student&#39;s test scores in reading and math. </p>
+
+<p>It appears that the school uses the student&#39;s social security number
+to uniquely identify each student. As researchers interested in test
+scores, we have no need for this highly protected data element other
+than for its ability to uniquely identify a student or allow linking
+to other records. Since we do not need to link to other records at the
+moment, any unique number or string will work for our
+purposes. Similarly, we don&#39;t really need the student&#39;s last name.</p>
+
+<p>Besides math (<code>mathscr</code>) and reading (<code>readscr</code>) scores, we may be
+interested in some of the other covariates. It&#39;s likely that many of
+these data elements, however, also carry restrictions of varying
+severity. For example, the school may be able to share the student&#39;s
+race/ethnicity and gender (provided the student is not otherwise
+identified) with most approved researchers, but can only share
+teachers&#39; names (<code>tid</code>) under more tightly restricted scenarios.</p>
+
 <p>This is where our DUA crosswalk file comes in handy.</p>
-</div>
-<div id="set-dua" class="section level2">
+
 <h2>Set DUA</h2>
-<p>The first step in the process is to set the DUA crosswalk file. The crosswalk file can be in many different formats and, in most cases, will be read in automatically no matter the type. (If using a delimited file that isn’t a comma- or tab-separated value format, give the <code>delimiter</code> argument the delimiter string; if using an Excel file with more than one sheet, give the <code>sheet</code> argument the sheet name or number.) If successful, you will get message telling you so.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(duawranglr)</span>
-<span id="cb1-3"><a href="#cb1-3"></a></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">## get crosswalk and admin data files</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a>dua_cw_file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&#39;extdata&#39;</span>, <span class="st">&#39;dua_cw.csv&#39;</span>, <span class="dt">package =</span> <span class="st">&#39;duawranglr&#39;</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a>admin_file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&#39;extdata&#39;</span>, <span class="st">&#39;admin_data.csv&#39;</span>, <span class="dt">package =</span> <span class="st">&#39;duawranglr&#39;</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">## set the DUA crosswalk</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">set_dua_cw</span>(dua_cw_file)</span></code></pre></div>
+
+<p>The first step in the process is to set the DUA crosswalk file. The
+crosswalk file can be in many different formats and, in most cases,
+will be read in automatically no matter the type. (If using a
+delimited file that isn&#39;t a comma- or tab-separated value format, give
+the <code>delimiter</code> argument the delimiter string; if using an Excel file
+with more than one sheet, give the <code>sheet</code> argument the sheet name or
+number.) If successful, you will get message telling you so.</p>
+
+<pre><code class="r">library(tidyverse)
+library(duawranglr)
+
+## get crosswalk and admin data files
+dua_cw_file &lt;- system.file(&#39;extdata&#39;, &#39;dua_cw.csv&#39;, package = &#39;duawranglr&#39;)
+admin_file &lt;- system.file(&#39;extdata&#39;, &#39;admin_data.csv&#39;, package = &#39;duawranglr&#39;)
+
+## set the DUA crosswalk
+set_dua_cw(dua_cw_file)
+</code></pre>
+
 <pre><code>-- duawranglr note -----------------------------------------------------------------------
-DUA crosswalk has been set!</code></pre>
-</div>
-<div id="check-dua-options" class="section level2">
+DUA crosswalk has been set!
+</code></pre>
+
 <h2>Check DUA options</h2>
-<p>In case you’ve forgotten the data elements that are restricted at a particular level, you can check them using the <code>see_dua_options()</code> function with the <code>level</code> argument set to the appropriate level. If you want to compare restrictions across more than one level, you can give the <code>level</code> argument a vector.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">## compare level II and III restrictions</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">see_dua_options</span>(<span class="dt">level =</span> <span class="kw">c</span>(<span class="st">&#39;level_ii&#39;</span>, <span class="st">&#39;level_iii&#39;</span>))</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>LEVEL NAME<span class="op">:</span><span class="st"> </span>level_ii</span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a>RESTRICTED VARIABLE NAMES<span class="op">:</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a><span class="st"> </span><span class="op">-</span><span class="st"> </span>dob</span>
-<span id="cb3-9"><a href="#cb3-9"></a> <span class="op">-</span><span class="st"> </span>sid</span>
-<span id="cb3-10"><a href="#cb3-10"></a> <span class="op">-</span><span class="st"> </span>sname</span>
-<span id="cb3-11"><a href="#cb3-11"></a> <span class="op">-</span><span class="st"> </span>tname</span>
-<span id="cb3-12"><a href="#cb3-12"></a> <span class="op">-</span><span class="st"> </span>zip</span>
-<span id="cb3-13"><a href="#cb3-13"></a> </span>
-<span id="cb3-14"><a href="#cb3-14"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-15"><a href="#cb3-15"></a>LEVEL NAME<span class="op">:</span><span class="st"> </span>level_iii</span>
-<span id="cb3-16"><a href="#cb3-16"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb3-17"><a href="#cb3-17"></a></span>
-<span id="cb3-18"><a href="#cb3-18"></a>RESTRICTED VARIABLE NAMES<span class="op">:</span></span>
-<span id="cb3-19"><a href="#cb3-19"></a><span class="st"> </span><span class="op">-</span><span class="st"> </span>sid</span>
-<span id="cb3-20"><a href="#cb3-20"></a> <span class="op">-</span><span class="st"> </span>sname</span>
-<span id="cb3-21"><a href="#cb3-21"></a> <span class="op">-</span><span class="st"> </span>tname</span>
-<span id="cb3-22"><a href="#cb3-22"></a> </span>
-<span id="cb3-23"><a href="#cb3-23"></a><span class="op">------------------------------------------------------------------------------------------</span></span></code></pre></div>
-<p>Alternately, you can see restrictions at all levels if you leave the <code>level</code> argument at its default <code>NULL</code> value.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">## check all level restrictions</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw">see_dua_options</span>()</span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>LEVEL NAME<span class="op">:</span><span class="st"> </span>level_i</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a>RESTRICTED VARIABLE NAMES<span class="op">:</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a><span class="st"> </span><span class="op">-</span><span class="st"> </span>dob</span>
-<span id="cb4-9"><a href="#cb4-9"></a> <span class="op">-</span><span class="st"> </span>gender</span>
-<span id="cb4-10"><a href="#cb4-10"></a> <span class="op">-</span><span class="st"> </span>raceeth</span>
-<span id="cb4-11"><a href="#cb4-11"></a> <span class="op">-</span><span class="st"> </span>sid</span>
-<span id="cb4-12"><a href="#cb4-12"></a> <span class="op">-</span><span class="st"> </span>sname</span>
-<span id="cb4-13"><a href="#cb4-13"></a> <span class="op">-</span><span class="st"> </span>tid</span>
-<span id="cb4-14"><a href="#cb4-14"></a> <span class="op">-</span><span class="st"> </span>tname</span>
-<span id="cb4-15"><a href="#cb4-15"></a> <span class="op">-</span><span class="st"> </span>zip</span>
-<span id="cb4-16"><a href="#cb4-16"></a> </span>
-<span id="cb4-17"><a href="#cb4-17"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb4-18"><a href="#cb4-18"></a>LEVEL NAME<span class="op">:</span><span class="st"> </span>level_ii</span>
-<span id="cb4-19"><a href="#cb4-19"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb4-20"><a href="#cb4-20"></a></span>
-<span id="cb4-21"><a href="#cb4-21"></a>RESTRICTED VARIABLE NAMES<span class="op">:</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a><span class="st"> </span><span class="op">-</span><span class="st"> </span>dob</span>
-<span id="cb4-23"><a href="#cb4-23"></a> <span class="op">-</span><span class="st"> </span>sid</span>
-<span id="cb4-24"><a href="#cb4-24"></a> <span class="op">-</span><span class="st"> </span>sname</span>
-<span id="cb4-25"><a href="#cb4-25"></a> <span class="op">-</span><span class="st"> </span>tname</span>
-<span id="cb4-26"><a href="#cb4-26"></a> <span class="op">-</span><span class="st"> </span>zip</span>
-<span id="cb4-27"><a href="#cb4-27"></a> </span>
-<span id="cb4-28"><a href="#cb4-28"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb4-29"><a href="#cb4-29"></a>LEVEL NAME<span class="op">:</span><span class="st"> </span>level_iii</span>
-<span id="cb4-30"><a href="#cb4-30"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb4-31"><a href="#cb4-31"></a></span>
-<span id="cb4-32"><a href="#cb4-32"></a>RESTRICTED VARIABLE NAMES<span class="op">:</span></span>
-<span id="cb4-33"><a href="#cb4-33"></a><span class="st"> </span><span class="op">-</span><span class="st"> </span>sid</span>
-<span id="cb4-34"><a href="#cb4-34"></a> <span class="op">-</span><span class="st"> </span>sname</span>
-<span id="cb4-35"><a href="#cb4-35"></a> <span class="op">-</span><span class="st"> </span>tname</span>
-<span id="cb4-36"><a href="#cb4-36"></a> </span>
-<span id="cb4-37"><a href="#cb4-37"></a><span class="op">------------------------------------------------------------------------------------------</span></span></code></pre></div>
-</div>
-<div id="set-dua-level" class="section level2">
+
+<p>In case you&#39;ve forgotten the data elements that are restricted at a
+particular level, you can check them using the <code>see_dua_options()</code>
+function with the <code>level</code> argument set to the appropriate level. If you
+want to compare restrictions across more than one level, you can give
+the <code>level</code> argument a vector.</p>
+
+<pre><code class="r">## compare level II and III restrictions
+see_dua_options(level = c(&#39;level_ii&#39;, &#39;level_iii&#39;))
+------------------------------------------------------------------------------------------
+LEVEL NAME: level_ii
+------------------------------------------------------------------------------------------
+
+RESTRICTED VARIABLE NAMES:
+ - dob
+ - sid
+ - sname
+ - tname
+ - zip
+
+------------------------------------------------------------------------------------------
+LEVEL NAME: level_iii
+------------------------------------------------------------------------------------------
+
+RESTRICTED VARIABLE NAMES:
+ - sid
+ - sname
+ - tname
+
+------------------------------------------------------------------------------------------
+</code></pre>
+
+<p>Alternately, you can see restrictions at all levels if you leave the
+<code>level</code> argument at its default <code>NULL</code> value.</p>
+
+<pre><code class="r">## check all level restrictions
+see_dua_options()
+------------------------------------------------------------------------------------------
+LEVEL NAME: level_i
+------------------------------------------------------------------------------------------
+
+RESTRICTED VARIABLE NAMES:
+ - dob
+ - gender
+ - raceeth
+ - sid
+ - sname
+ - tid
+ - tname
+ - zip
+
+------------------------------------------------------------------------------------------
+LEVEL NAME: level_ii
+------------------------------------------------------------------------------------------
+
+RESTRICTED VARIABLE NAMES:
+ - dob
+ - sid
+ - sname
+ - tname
+ - zip
+
+------------------------------------------------------------------------------------------
+LEVEL NAME: level_iii
+------------------------------------------------------------------------------------------
+
+RESTRICTED VARIABLE NAMES:
+ - sid
+ - sname
+ - tname
+
+------------------------------------------------------------------------------------------
+</code></pre>
+
 <h2>Set DUA level</h2>
-<p>After consultation with our data partner, we’ve decided that data for this project need to be set at Level II. Because no level allows us to use the current unique ID, <code>sid</code>, we also need to deidentify the data. We could just delete the <code>sid</code> column, but for reasons discussed below, it will be better if we use it to make new, non-identifiable but unique IDs. Therefore, we use additional arguments in <code>set_dua_level()</code> to note that deidentification is required and set the targeted ID column.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## set DUA level</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">set_dua_level</span>(<span class="st">&#39;level_ii&#39;</span>, <span class="dt">deidentify_required =</span> <span class="ot">TRUE</span>, <span class="dt">id_column =</span> <span class="st">&#39;sid&#39;</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="op">--</span><span class="st"> </span>duawranglr note <span class="op">-----------------------------------------------------------------------</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>Unique IDs <span class="cf">in</span> [ sid ] must be deidentified; use <span class="op">-</span><span class="kw">deid_dua</span>()<span class="op">-</span>.</span></code></pre></div>
-</div>
-<div id="check-dua-level" class="section level2">
+
+<p>After consultation with our data partner, we&#39;ve decided that data for
+this project need to be set at Level II. Because no level allows us to
+use the current unique ID, <code>sid</code>, we also need to deidentify the
+data. We could just delete the <code>sid</code> column, but for reasons discussed
+below, it will be better if we use it to make new, non-identifiable
+but unique IDs. Therefore, we use additional arguments in
+<code>set_dua_level()</code> to note that deidentification is required and set the
+targeted ID column.</p>
+
+<pre><code class="r">## set DUA level
+set_dua_level(&#39;level_ii&#39;, deidentify_required = TRUE, id_column = &#39;sid&#39;)
+-- duawranglr note -----------------------------------------------------------------------
+Unique IDs in [ sid ] must be deidentified; use -deid_dua()-.
+</code></pre>
+
 <h2>Check DUA level</h2>
-<p>As we’re preparing the data, we can check our restriction level and the data element names it restricts using <code>see_dua_level()</code>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">## see set DUA level </span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">see_dua_level</span>(<span class="dt">show_restrictions =</span> <span class="ot">TRUE</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>You have set restrictions at [ level_ii ]</span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="op">------------------------------------------------------------------------------------------</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a>RESTRICTED VARIABLE NAMES<span class="op">:</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="st"> </span><span class="op">-</span><span class="st"> </span>dob</span>
-<span id="cb6-9"><a href="#cb6-9"></a> <span class="op">-</span><span class="st"> </span>sid</span>
-<span id="cb6-10"><a href="#cb6-10"></a> <span class="op">-</span><span class="st"> </span>sname</span>
-<span id="cb6-11"><a href="#cb6-11"></a> <span class="op">-</span><span class="st"> </span>tname</span>
-<span id="cb6-12"><a href="#cb6-12"></a> <span class="op">-</span><span class="st"> </span>zip</span>
-<span id="cb6-13"><a href="#cb6-13"></a> </span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="op">------------------------------------------------------------------------------------------</span></span></code></pre></div>
-</div>
-<div id="administrative-data" class="section level1">
+
+<p>As we&#39;re preparing the data, we can check our restriction level and
+the data element names it restricts using <code>see_dua_level()</code>. </p>
+
+<pre><code class="r">## see set DUA level 
+see_dua_level(show_restrictions = TRUE)
+------------------------------------------------------------------------------------------
+You have set restrictions at [ level_ii ]
+------------------------------------------------------------------------------------------
+
+RESTRICTED VARIABLE NAMES:
+ - dob
+ - sid
+ - sname
+ - tname
+ - zip
+
+------------------------------------------------------------------------------------------
+</code></pre>
+
 <h1>Administrative data</h1>
-<p>After loading some libraries, we’ll first read in the raw administrative data file and confirm that it has nine observations and the data elements we expect.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">## read in raw administrative data</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>df &lt;-<span class="st"> </span><span class="kw">read_dua_file</span>(admin_file)</span>
-<span id="cb7-3"><a href="#cb7-3"></a>df</span></code></pre></div>
+
+<p>After loading some libraries, we&#39;ll first read in the raw
+administrative data file and confirm that it has nine observations and
+the data elements we expect.</p>
+
+<pre><code class="r">## read in raw administrative data
+df &lt;- read_dua_file(admin_file)
+df
+</code></pre>
+
 <pre><code># A tibble: 9 x 10
   sid         sname    dob      gender raceeth   tid tname   zip mathscr readscr
   &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;int&gt;   &lt;int&gt;   &lt;int&gt;
@@ -586,55 +535,87 @@ DUA crosswalk has been set!</code></pre>
 6 000-00-0006 Dean     19900621      1       1     2 Brown 22906     503     523
 7 000-00-0007 Hickman  19900712      1       1     2 Brown 22906     539     509
 8 000-00-0008 Bryant   19900826      0       2     2 Brown 22906     499     490
-9 000-00-0009 Lynch    19900902      1       3     2 Brown 22906     499     493</code></pre>
-</div>
-<div id="deidentify-data" class="section level1">
+9 000-00-0009 Lynch    19900902      1       3     2 Brown 22906     499     493
+</code></pre>
+
 <h1>Deidentify data</h1>
-<div id="single-file-or-no-existing-crosswalk" class="section level2">
+
 <h2>Single file or no existing crosswalk</h2>
-<p>We indicated that the data need to be deidentified, so a good first step in cleaning the raw data is to convert unique student id, <code>sid</code>, into a similarly unique, but unidentifiable value.</p>
-<p>Why not just generate some random string for each value? Though we don’t care to merge these data with other files, we may need to do so in the future. If we randomly generate new IDs, discarding the old ones in the process, we will be stuck.</p>
+
+<p>We indicated that the data need to be deidentified, so a good first
+step in cleaning the raw data is to convert unique student id, <code>sid</code>,
+into a similarly unique, but unidentifiable value. </p>
+
+<p>Why not just generate some random string for each value? Though we
+don&#39;t care to merge these data with other files, we may need to do so
+in the future. If we randomly generate new IDs, discarding the old
+ones in the process, we will be stuck.</p>
+
 <p>The <code>deid_dua()</code> function does two things:</p>
-<ol style="list-style-type: decimal">
-<li>It uses a secure <code>SHA-2</code> algorithm to convert sensitive IDs into unique hexadecimal strings that cannot be reverted back to the originial IDs (important in the case such as ours when the unique ID is the student’s social security number);</li>
-<li>It has the option to save a crosswalk file that links the old secure IDs to the new IDs.</li>
+
+<ol>
+<li>It uses a secure <code>SHA-2</code> algorithm to convert sensitive IDs into
+unique hexadecimal strings that cannot be reverted back to the
+originial IDs (important in the case such as ours when the unique
+ID is the student&#39;s social security number);</li>
+<li>It has the option to save a crosswalk file that links the old
+secure IDs to the new IDs.</li>
 </ol>
-<p>Clearly, it defeats the purpose of deidentifying IDs if a crosswalk between old and new travels with the new data. But if the crosswalk file is keep in a secure location, perhaps on the same server that hosts the raw administrative data, then old IDs can be retrieved if necessary by those with the proper clearance to do so.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">## deidentify data</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>df &lt;-<span class="st"> </span><span class="kw">deid_dua</span>(df, <span class="dt">write_crosswalk =</span> <span class="ot">TRUE</span>, <span class="dt">id_length =</span> <span class="dv">20</span>)</span></code></pre></div>
-<p>Here’s what the saved crosswalk looks like:</p>
+
+<p>Clearly, it defeats the purpose of deidentifying IDs if a crosswalk
+between old and new travels with the new data. But if the crosswalk
+file is keep in a secure location, perhaps on the same server that
+hosts the raw administrative data, then old IDs can be retrieved if
+necessary by those with the proper clearance to do so.</p>
+
+<pre><code class="r">## deidentify data
+df &lt;- deid_dua(df, write_crosswalk = TRUE, id_length = 20)
+</code></pre>
+
+<p>Here&#39;s what the saved crosswalk looks like:</p>
+
 <pre><code># A tibble: 9 x 2
   sid         id                  
   &lt;chr&gt;       &lt;chr&gt;               
-1 000-00-0001 0037caa3a86d376a09d5
-2 000-00-0002 c6aa59c1c296bc4774d7
-3 000-00-0003 07eeb811aecb438920ae
-4 000-00-0004 4cbbd0deaf4bc6191ff5
-5 000-00-0005 5044da00d6511ac50393
-6 000-00-0006 a0a741f966284d293747
-7 000-00-0007 42f76e74691b3b8b5ca4
-8 000-00-0008 9cf2cca278bd6926f474
-9 000-00-0009 49246b52887e5d770142</code></pre>
+1 000-00-0001 68ea6f07fddc8a1e525c
+2 000-00-0002 d98ea32abc9d6f079bd7
+3 000-00-0003 f23714e567008389d031
+4 000-00-0004 c97720c2bb7514069648
+5 000-00-0005 7eebe59e0dd688b17f36
+6 000-00-0006 b1562c001d69e706f026
+7 000-00-0007 0d11deed8ea05a340321
+8 000-00-0008 cb4ec10ddc53aa78adce
+9 000-00-0009 1192b853d2b8fda3ee66
+</code></pre>
+
 <p>And here now is the data frame:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">## show data frame</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>df</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co"># A tibble: 9 x 10</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>  id                   sname    dob      gender raceeth   tid tname   zip mathscr readscr</span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">     </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="dv">1</span> 0037caa3a86d376a09d5 Schaefer <span class="dv">19900114</span>      <span class="dv">0</span>       <span class="dv">2</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">515</span>     <span class="dv">496</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="dv">2</span> c6aa59c1c296bc4774d7 Hodges   <span class="dv">19900225</span>      <span class="dv">0</span>       <span class="dv">1</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">488</span>     <span class="dv">489</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="dv">3</span> 07eeb811aecb438920ae Kirby    <span class="dv">19900305</span>      <span class="dv">0</span>       <span class="dv">4</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">522</span>     <span class="dv">498</span></span>
-<span id="cb11-9"><a href="#cb11-9"></a><span class="dv">4</span> 4cbbd0deaf4bc6191ff5 Estrada  <span class="dv">19900419</span>      <span class="dv">0</span>       <span class="dv">3</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">516</span>     <span class="dv">524</span></span>
-<span id="cb11-10"><a href="#cb11-10"></a><span class="dv">5</span> 5044da00d6511ac50393 Nielsen  <span class="dv">19900530</span>      <span class="dv">1</span>       <span class="dv">2</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">483</span>     <span class="dv">509</span></span>
-<span id="cb11-11"><a href="#cb11-11"></a><span class="dv">6</span> a0a741f966284d293747 Dean     <span class="dv">19900621</span>      <span class="dv">1</span>       <span class="dv">1</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">503</span>     <span class="dv">523</span></span>
-<span id="cb11-12"><a href="#cb11-12"></a><span class="dv">7</span> 42f76e74691b3b8b5ca4 Hickman  <span class="dv">19900712</span>      <span class="dv">1</span>       <span class="dv">1</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">539</span>     <span class="dv">509</span></span>
-<span id="cb11-13"><a href="#cb11-13"></a><span class="dv">8</span> 9cf2cca278bd6926f474 Bryant   <span class="dv">19900826</span>      <span class="dv">0</span>       <span class="dv">2</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">499</span>     <span class="dv">490</span></span>
-<span id="cb11-14"><a href="#cb11-14"></a><span class="dv">9</span> 49246b52887e5d770142 Lynch    <span class="dv">19900902</span>      <span class="dv">1</span>       <span class="dv">3</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">499</span>     <span class="dv">493</span></span></code></pre></div>
-</div>
-<div id="links-across-multiple-files-with-existing-crosswalk" class="section level2">
+
+<pre><code class="r">## show data frame
+df
+# A tibble: 9 x 10
+  id                   sname    dob      gender raceeth   tid tname   zip mathscr readscr
+  &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;int&gt;   &lt;int&gt;   &lt;int&gt;
+1 68ea6f07fddc8a1e525c Schaefer 19900114      0       2     1 Smith 22906     515     496
+2 d98ea32abc9d6f079bd7 Hodges   19900225      0       1     1 Smith 22906     488     489
+3 f23714e567008389d031 Kirby    19900305      0       4     1 Smith 22906     522     498
+4 c97720c2bb7514069648 Estrada  19900419      0       3     1 Smith 22906     516     524
+5 7eebe59e0dd688b17f36 Nielsen  19900530      1       2     1 Smith 22906     483     509
+6 b1562c001d69e706f026 Dean     19900621      1       1     2 Brown 22906     503     523
+7 0d11deed8ea05a340321 Hickman  19900712      1       1     2 Brown 22906     539     509
+8 cb4ec10ddc53aa78adce Bryant   19900826      0       2     2 Brown 22906     499     490
+9 1192b853d2b8fda3ee66 Lynch    19900902      1       3     2 Brown 22906     499     493
+</code></pre>
+
 <h2>Links across multiple files with existing crosswalk</h2>
-<p>If the deidentified data frame is built from multiple files (<em>e.g.</em>, a panel data set of observations across years), then we’ll want to reuse an existing crosswalk. Otherwise, the same original ID will end up with multiple new IDs and we won’t be able to link observations across data sets.</p>
-<p>Let’s say we already have master crosswalk file that looks like this:</p>
+
+<p>If the deidentified data frame is built from multiple files (<em>e.g.</em>, a
+panel data set of observations across years), then we&#39;ll want to reuse
+an existing crosswalk. Otherwise, the same original ID will end up
+with multiple new IDs and we won&#39;t be able to link observations across
+data sets.</p>
+
+<p>Let&#39;s say we already have master crosswalk file that looks like this:</p>
+
 <pre><code># A tibble: 9 x 2
   sid         id                  
   &lt;chr&gt;       &lt;chr&gt;               
@@ -646,27 +627,39 @@ DUA crosswalk has been set!</code></pre>
 6 000-00-0006 9d42b365e2e49989b620
 7 000-00-0007 a997bd9ffc4ee8030081
 8 000-00-0008 43fc27899df21721b0c5
-9 000-00-0009 e3150a7010e9a08d52f0</code></pre>
-<p>Rather than create new IDs, we can use the <code>existing_crosswalk</code> argument to read in and use the new IDs we’ve already made. Everything else works the same as before.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>df &lt;-<span class="st"> </span><span class="kw">deid_dua</span>(df, <span class="dt">existing_crosswalk =</span> <span class="st">&#39;master_crosswalk.csv&#39;</span>)</span></code></pre></div>
+9 000-00-0009 e3150a7010e9a08d52f0
+</code></pre>
+
+<p>Rather than create new IDs, we can use the <code>existing_crosswalk</code>
+argument to read in and use the new IDs we&#39;ve already made. Everything
+else works the same as before.    </p>
+
+<pre><code class="r">df &lt;- deid_dua(df, existing_crosswalk = &#39;master_crosswalk.csv&#39;)
+</code></pre>
+
 <p>The new ID values now match those from the crosswalk.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>df</span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="co"># A tibble: 9 x 10</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  id                   sname    dob      gender raceeth   tid tname   zip mathscr readscr</span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">     </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="dv">1</span> db3681caa7e4789c9a99 Schaefer <span class="dv">19900114</span>      <span class="dv">0</span>       <span class="dv">2</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">515</span>     <span class="dv">496</span></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="dv">2</span> <span class="fl">8e13</span>af4fbb998c26348f Hodges   <span class="dv">19900225</span>      <span class="dv">0</span>       <span class="dv">1</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">488</span>     <span class="dv">489</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="dv">3</span> 2c7f2f98f9ee0e3b69ba Kirby    <span class="dv">19900305</span>      <span class="dv">0</span>       <span class="dv">4</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">522</span>     <span class="dv">498</span></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="dv">4</span> ed7041ab2076a84fe611 Estrada  <span class="dv">19900419</span>      <span class="dv">0</span>       <span class="dv">3</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">516</span>     <span class="dv">524</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="dv">5</span> d4180e00af840a7a8e29 Nielsen  <span class="dv">19900530</span>      <span class="dv">1</span>       <span class="dv">2</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">483</span>     <span class="dv">509</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a><span class="dv">6</span> 9d42b365e2e49989b620 Dean     <span class="dv">19900621</span>      <span class="dv">1</span>       <span class="dv">1</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">503</span>     <span class="dv">523</span></span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="dv">7</span> a997bd9ffc4ee8030081 Hickman  <span class="dv">19900712</span>      <span class="dv">1</span>       <span class="dv">1</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">539</span>     <span class="dv">509</span></span>
-<span id="cb14-12"><a href="#cb14-12"></a><span class="dv">8</span> 43fc27899df21721b0c5 Bryant   <span class="dv">19900826</span>      <span class="dv">0</span>       <span class="dv">2</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">499</span>     <span class="dv">490</span></span>
-<span id="cb14-13"><a href="#cb14-13"></a><span class="dv">9</span> e3150a7010e9a08d52f0 Lynch    <span class="dv">19900902</span>      <span class="dv">1</span>       <span class="dv">3</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">499</span>     <span class="dv">493</span></span></code></pre></div>
-</div>
-<div id="updates-to-existing-crosswalk" class="section level2">
+
+<pre><code class="r">df
+# A tibble: 9 x 10
+  id                   sname    dob      gender raceeth   tid tname   zip mathscr readscr
+  &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;int&gt;   &lt;int&gt;   &lt;int&gt;
+1 db3681caa7e4789c9a99 Schaefer 19900114      0       2     1 Smith 22906     515     496
+2 8e13af4fbb998c26348f Hodges   19900225      0       1     1 Smith 22906     488     489
+3 2c7f2f98f9ee0e3b69ba Kirby    19900305      0       4     1 Smith 22906     522     498
+4 ed7041ab2076a84fe611 Estrada  19900419      0       3     1 Smith 22906     516     524
+5 d4180e00af840a7a8e29 Nielsen  19900530      1       2     1 Smith 22906     483     509
+6 9d42b365e2e49989b620 Dean     19900621      1       1     2 Brown 22906     503     523
+7 a997bd9ffc4ee8030081 Hickman  19900712      1       1     2 Brown 22906     539     509
+8 43fc27899df21721b0c5 Bryant   19900826      0       2     2 Brown 22906     499     490
+9 e3150a7010e9a08d52f0 Lynch    19900902      1       3     2 Brown 22906     499     493
+</code></pre>
+
 <h2>Updates to existing crosswalk</h2>
-<p>In our example, we have nine students in the current file. Let’s say that though we have a crosswalk, it only has new IDs for the first five observations:</p>
+
+<p>In our example, we have nine students in the current file. Let&#39;s say
+that though we have a crosswalk, it only has new IDs for the first
+five observations:</p>
+
 <pre><code># A tibble: 5 x 2
   sid         id                  
   &lt;chr&gt;       &lt;chr&gt;               
@@ -674,30 +667,45 @@ DUA crosswalk has been set!</code></pre>
 2 000-00-0002 8e13af4fbb998c26348f
 3 000-00-0003 2c7f2f98f9ee0e3b69ba
 4 000-00-0004 ed7041ab2076a84fe611
-5 000-00-0005 d4180e00af840a7a8e29</code></pre>
-<p>If the existing crosswalk doesn’t have values for all observations, then <code>deid_dua()</code> will:</p>
-<ol style="list-style-type: decimal">
+5 000-00-0005 d4180e00af840a7a8e29
+</code></pre>
+
+<p>If the existing crosswalk doesn&#39;t have values for all observations,
+then <code>deid_dua()</code> will:  </p>
+
+<ol>
 <li>Match old IDs with new IDs that <strong>do</strong> exist in the crosswalk</li>
-<li>Generate new IDs for the old IDs that <strong>don’t</strong> exist in the crosswalk</li>
+<li>Generate new IDs for the old IDs that <strong>don&#39;t</strong> exist in the
+crosswalk</li>
 <li>Update and save the crosswalk</li>
 </ol>
+
 <p>The command is the same for a partial crosswalk as for a complete crosswalk.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>df &lt;-<span class="st"> </span><span class="kw">deid_dua</span>(df, <span class="dt">existing_crosswalk =</span> <span class="st">&#39;crosswalk_partial.csv&#39;</span>)</span></code></pre></div>
-<p>Notice that the new IDs for the first five observations match those that were already in the existing crosswalk. The last four are new.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>df</span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="co"># A tibble: 9 x 10</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a>  id                   sname    dob      gender raceeth   tid tname   zip mathscr readscr</span>
-<span id="cb17-4"><a href="#cb17-4"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">    </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st">     </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>chr<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="dv">1</span> db3681caa7e4789c9a99 Schaefer <span class="dv">19900114</span>      <span class="dv">0</span>       <span class="dv">2</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">515</span>     <span class="dv">496</span></span>
-<span id="cb17-6"><a href="#cb17-6"></a><span class="dv">2</span> <span class="fl">8e13</span>af4fbb998c26348f Hodges   <span class="dv">19900225</span>      <span class="dv">0</span>       <span class="dv">1</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">488</span>     <span class="dv">489</span></span>
-<span id="cb17-7"><a href="#cb17-7"></a><span class="dv">3</span> 2c7f2f98f9ee0e3b69ba Kirby    <span class="dv">19900305</span>      <span class="dv">0</span>       <span class="dv">4</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">522</span>     <span class="dv">498</span></span>
-<span id="cb17-8"><a href="#cb17-8"></a><span class="dv">4</span> ed7041ab2076a84fe611 Estrada  <span class="dv">19900419</span>      <span class="dv">0</span>       <span class="dv">3</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">516</span>     <span class="dv">524</span></span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="dv">5</span> d4180e00af840a7a8e29 Nielsen  <span class="dv">19900530</span>      <span class="dv">1</span>       <span class="dv">2</span>     <span class="dv">1</span> Smith <span class="dv">22906</span>     <span class="dv">483</span>     <span class="dv">509</span></span>
-<span id="cb17-10"><a href="#cb17-10"></a><span class="dv">6</span> 8d50925e0eb7df6e57d4 Dean     <span class="dv">19900621</span>      <span class="dv">1</span>       <span class="dv">1</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">503</span>     <span class="dv">523</span></span>
-<span id="cb17-11"><a href="#cb17-11"></a><span class="dv">7</span> 20bac80d3c3226482982 Hickman  <span class="dv">19900712</span>      <span class="dv">1</span>       <span class="dv">1</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">539</span>     <span class="dv">509</span></span>
-<span id="cb17-12"><a href="#cb17-12"></a><span class="dv">8</span> 4f42d74ebc08499229bb Bryant   <span class="dv">19900826</span>      <span class="dv">0</span>       <span class="dv">2</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">499</span>     <span class="dv">490</span></span>
-<span id="cb17-13"><a href="#cb17-13"></a><span class="dv">9</span> fe2f5584b664442e956e Lynch    <span class="dv">19900902</span>      <span class="dv">1</span>       <span class="dv">3</span>     <span class="dv">2</span> Brown <span class="dv">22906</span>     <span class="dv">499</span>     <span class="dv">493</span></span></code></pre></div>
-<p>Looking at the partial crosswalk, we see that it now has four new rows with new IDs each for the observations it didn’t have before.</p>
+
+<pre><code class="r">df &lt;- deid_dua(df, existing_crosswalk = &#39;crosswalk_partial.csv&#39;)
+</code></pre>
+
+<p>Notice that the new IDs for the first five observations match those
+that were already in the existing crosswalk. The last four are new.</p>
+
+<pre><code class="r">df
+# A tibble: 9 x 10
+  id                   sname    dob      gender raceeth   tid tname   zip mathscr readscr
+  &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt;     &lt;int&gt;   &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;int&gt;   &lt;int&gt;   &lt;int&gt;
+1 db3681caa7e4789c9a99 Schaefer 19900114      0       2     1 Smith 22906     515     496
+2 8e13af4fbb998c26348f Hodges   19900225      0       1     1 Smith 22906     488     489
+3 2c7f2f98f9ee0e3b69ba Kirby    19900305      0       4     1 Smith 22906     522     498
+4 ed7041ab2076a84fe611 Estrada  19900419      0       3     1 Smith 22906     516     524
+5 d4180e00af840a7a8e29 Nielsen  19900530      1       2     1 Smith 22906     483     509
+6 9c0975c2a6da6f07abcc Dean     19900621      1       1     2 Brown 22906     503     523
+7 be19195522c69f6dd3e1 Hickman  19900712      1       1     2 Brown 22906     539     509
+8 1c457e1ab5cd98367cbc Bryant   19900826      0       2     2 Brown 22906     499     490
+9 e6d201fb1a9ae0ac9968 Lynch    19900902      1       3     2 Brown 22906     499     493
+</code></pre>
+
+<p>Looking at the partial crosswalk, we see that it now has four new rows
+with new IDs each for the observations it didn&#39;t have before. </p>
+
 <pre><code># A tibble: 9 x 2
   sid         id                  
   &lt;chr&gt;       &lt;chr&gt;               
@@ -706,99 +714,133 @@ DUA crosswalk has been set!</code></pre>
 3 000-00-0003 2c7f2f98f9ee0e3b69ba
 4 000-00-0004 ed7041ab2076a84fe611
 5 000-00-0005 d4180e00af840a7a8e29
-6 000-00-0006 8d50925e0eb7df6e57d4
-7 000-00-0007 20bac80d3c3226482982
-8 000-00-0008 4f42d74ebc08499229bb
-9 000-00-0009 fe2f5584b664442e956e</code></pre>
-<p>Should we encounter those students in future files, <code>deid_dua()</code> will use the new IDs we just created.</p>
-</div>
-</div>
-<div id="check-data-frame" class="section level1">
+6 000-00-0006 9c0975c2a6da6f07abcc
+7 000-00-0007 be19195522c69f6dd3e1
+8 000-00-0008 1c457e1ab5cd98367cbc
+9 000-00-0009 e6d201fb1a9ae0ac9968
+</code></pre>
+
+<p>Should we encounter those students in future files, <code>deid_dua()</code> will
+use the new IDs we just created.</p>
+
 <h1>Check data frame</h1>
-<p>If we try to write the data frame using the <code>write_dua_df()</code> function, we get an error.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">## write data to disk with one last check</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="kw">write_dua_df</span>(df, <span class="st">&#39;cleaned_data.csv&#39;</span>, <span class="dt">output_type =</span> <span class="st">&#39;csv&#39;</span>)</span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="op">--</span><span class="st"> </span>duawranglr note <span class="op">-----------------------------------------------------------------------</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a>Data set has not yet passed check. Run <span class="op">-</span><span class="kw">check_dua_restrictions</span>()<span class="op">-</span><span class="st"> </span>to check status.</span></code></pre></div>
-<p>Right, we haven’t removed all the restricted data elements. Following the directions, we can check to see what still needs to be removed using the <code>check_dua_restrictions()</code> function.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co">## check</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="kw">check_dua_restrictions</span>(df)</span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="op">--</span><span class="st"> </span>duawranglr note <span class="op">-----------------------------------------------------------------------</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>The following variables are not allowed at the current data usage level restriction [</span>
-<span id="cb20-5"><a href="#cb20-5"></a>level_ii ] and MUST BE REMOVED before saving<span class="op">:</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a><span class="st"> </span><span class="op">-</span><span class="st"> </span>sname</span>
-<span id="cb20-7"><a href="#cb20-7"></a> <span class="op">-</span><span class="st"> </span>dob</span>
-<span id="cb20-8"><a href="#cb20-8"></a> <span class="op">-</span><span class="st"> </span>tname</span>
-<span id="cb20-9"><a href="#cb20-9"></a> <span class="op">-</span><span class="st"> </span>zip</span></code></pre></div>
-<p>We’ve successfully removed <code>sid</code> already (when we deidentified the data frame), but still have to remove the student’s last name, date of birth, teacher’s name, and zip code to meet level II restrictions. Once we remove those columns, we can check again.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">## remove restricted columns</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>df &lt;-<span class="st"> </span>df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(sname, dob, tname, zip))</span>
-<span id="cb21-3"><a href="#cb21-3"></a></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="co">## check again</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="kw">check_dua_restrictions</span>(df)</span>
-<span id="cb21-6"><a href="#cb21-6"></a><span class="op">--</span><span class="st"> </span>duawranglr note <span class="op">-----------------------------------------------------------------------</span></span>
-<span id="cb21-7"><a href="#cb21-7"></a>Data set has passed check and may be saved.</span></code></pre></div>
-<p>Success! And to be sure, here’s what our data frame looks like now:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>df</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="co"># A tibble: 9 x 6</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>  id                   gender raceeth   tid mathscr readscr</span>
-<span id="cb22-4"><a href="#cb22-4"></a>  <span class="op">&lt;</span>chr<span class="op">&gt;</span><span class="st">                 </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st"> </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span><span class="st">   </span><span class="er">&lt;</span>int<span class="op">&gt;</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a><span class="dv">1</span> db3681caa7e4789c9a99      <span class="dv">0</span>       <span class="dv">2</span>     <span class="dv">1</span>     <span class="dv">515</span>     <span class="dv">496</span></span>
-<span id="cb22-6"><a href="#cb22-6"></a><span class="dv">2</span> <span class="fl">8e13</span>af4fbb998c26348f      <span class="dv">0</span>       <span class="dv">1</span>     <span class="dv">1</span>     <span class="dv">488</span>     <span class="dv">489</span></span>
-<span id="cb22-7"><a href="#cb22-7"></a><span class="dv">3</span> 2c7f2f98f9ee0e3b69ba      <span class="dv">0</span>       <span class="dv">4</span>     <span class="dv">1</span>     <span class="dv">522</span>     <span class="dv">498</span></span>
-<span id="cb22-8"><a href="#cb22-8"></a><span class="dv">4</span> ed7041ab2076a84fe611      <span class="dv">0</span>       <span class="dv">3</span>     <span class="dv">1</span>     <span class="dv">516</span>     <span class="dv">524</span></span>
-<span id="cb22-9"><a href="#cb22-9"></a><span class="dv">5</span> d4180e00af840a7a8e29      <span class="dv">1</span>       <span class="dv">2</span>     <span class="dv">1</span>     <span class="dv">483</span>     <span class="dv">509</span></span>
-<span id="cb22-10"><a href="#cb22-10"></a><span class="dv">6</span> 8d50925e0eb7df6e57d4      <span class="dv">1</span>       <span class="dv">1</span>     <span class="dv">2</span>     <span class="dv">503</span>     <span class="dv">523</span></span>
-<span id="cb22-11"><a href="#cb22-11"></a><span class="dv">7</span> 20bac80d3c3226482982      <span class="dv">1</span>       <span class="dv">1</span>     <span class="dv">2</span>     <span class="dv">539</span>     <span class="dv">509</span></span>
-<span id="cb22-12"><a href="#cb22-12"></a><span class="dv">8</span> 4f42d74ebc08499229bb      <span class="dv">0</span>       <span class="dv">2</span>     <span class="dv">2</span>     <span class="dv">499</span>     <span class="dv">490</span></span>
-<span id="cb22-13"><a href="#cb22-13"></a><span class="dv">9</span> fe2f5584b664442e956e      <span class="dv">1</span>       <span class="dv">3</span>     <span class="dv">2</span>     <span class="dv">499</span>     <span class="dv">493</span></span></code></pre></div>
-</div>
-<div id="write-cleaned-data-frame-to-disk" class="section level1">
+
+<p>If we try to write the data frame using the <code>write_dua_df()</code> function,
+we get an error.</p>
+
+<pre><code class="r">## write data to disk with one last check
+write_dua_df(df, &#39;cleaned_data.csv&#39;, output_type = &#39;csv&#39;)
+-- duawranglr note -----------------------------------------------------------------------
+Data set has not yet passed check. Run -check_dua_restrictions()- to check status.
+</code></pre>
+
+<p>Right, we haven&#39;t removed all the restricted data elements. Following
+the directions, we can check to see what still needs to be removed
+using the <code>check_dua_restrictions()</code> function.</p>
+
+<pre><code class="r">## check
+check_dua_restrictions(df)
+-- duawranglr note -----------------------------------------------------------------------
+The following variables are not allowed at the current data usage level restriction [
+level_ii ] and MUST BE REMOVED before saving:
+ - sname
+ - dob
+ - tname
+ - zip
+</code></pre>
+
+<p>We&#39;ve successfully removed <code>sid</code> already (when we deidentified the
+data frame), but still have to remove the student&#39;s last name, date of
+birth, teacher&#39;s name, and zip code to meet level II
+restrictions. Once we remove those columns, we can check again.</p>
+
+<pre><code class="r">## remove restricted columns
+df &lt;- df %&gt;% select(-c(sname, dob, tname, zip))
+
+## check again
+check_dua_restrictions(df)
+-- duawranglr note -----------------------------------------------------------------------
+Data set has passed check and may be saved.
+</code></pre>
+
+<p>Success! And to be sure, here&#39;s what our data frame looks like now:</p>
+
+<pre><code class="r">df
+# A tibble: 9 x 6
+  id                   gender raceeth   tid mathscr readscr
+  &lt;chr&gt;                 &lt;int&gt;   &lt;int&gt; &lt;int&gt;   &lt;int&gt;   &lt;int&gt;
+1 db3681caa7e4789c9a99      0       2     1     515     496
+2 8e13af4fbb998c26348f      0       1     1     488     489
+3 2c7f2f98f9ee0e3b69ba      0       4     1     522     498
+4 ed7041ab2076a84fe611      0       3     1     516     524
+5 d4180e00af840a7a8e29      1       2     1     483     509
+6 9c0975c2a6da6f07abcc      1       1     2     503     523
+7 be19195522c69f6dd3e1      1       1     2     539     509
+8 1c457e1ab5cd98367cbc      0       2     2     499     490
+9 e6d201fb1a9ae0ac9968      1       3     2     499     493
+</code></pre>
+
 <h1>Write cleaned data frame to disk</h1>
-<p>Now that we’ve passed our check, we can write the level II secure data frame to disk. Just like the <code>set_dua_cw()</code> function, which automates reading in many types of files, <code>write_dua_df()</code> will write many types of files. See <code>?write_dua_df</code> for options.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">## write data to disk </span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="kw">write_dua_df</span>(df, <span class="st">&#39;cleaned_data_lev_ii.csv&#39;</span>, <span class="dt">output_type =</span> <span class="st">&#39;csv&#39;</span>)</span></code></pre></div>
-</div>
-<div id="interactive-template" class="section level1">
+
+<p>Now that we&#39;ve passed our check, we can write the level II secure data
+frame to disk. Just like the <code>set_dua_cw()</code> function, which automates
+reading in many types of files, <code>write_dua_df()</code> will write many types
+of files. See <code>?write_dua_df</code> for options.</p>
+
+<pre><code class="r">## write data to disk 
+write_dua_df(df, &#39;cleaned_data_lev_ii.csv&#39;, output_type = &#39;csv&#39;)
+</code></pre>
+
 <h1>Interactive template</h1>
-<p>Particularly for the first few times you use this package, you may need help remembering the steps. To help the process, the interactive <code>make_dua_template()</code> function will help you make a template script that you can then modify to meet your data cleaning needs. When called, the function will ask you a few yes or no questions and, based on your answers, build a template script that pre-fills some function arguments.</p>
+
+<p>Particularly for the first few times you use this package, you may
+need help remembering the steps. To help the process, the interactive
+<code>make_dua_template()</code> function will help you make a template script
+that you can then modify to meet your data cleaning needs. When
+called, the function will ask you a few yes or no questions and, based
+on your answers, build a template script that pre-fills some function
+arguments. </p>
+
 <p>An example template script is printed below.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co">## save template to disk</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="kw">make_dua_template</span>(<span class="st">&#39;clean_data.R&#39;</span>)</span></code></pre></div>
-<div id="example" class="section level4">
+
+<pre><code class="r">## save template to disk
+make_dua_template(&#39;clean_data.R&#39;)
+</code></pre>
+
 <h4>EXAMPLE</h4>
+
 <pre><code>################################################################################
 ##
 ## [ Proj ] &lt; general project name &gt;
 ## [ File ] clean_data.R
 ## [ Auth ] &lt; author name &gt;
-## [ Init ] 23 October 2019
+## [ Init ] 19 November 2019
 ##
 ################################################################################
- 
+
 ## ---------------------------
 ## libraries
 ## ---------------------------
- 
+
 ## NOTES: Include additional libraries using either -library()- or -require()-
 ## functions here.
- 
+
 ## ---------------------------
 ## set DUA crosswalk
 ## ---------------------------
- 
+
 ## NOTES: Choose the DUA agreement crosswalk file if you didn&#39;t when setting up
 ## the template. If the file is a delimited file that isn&#39;t a CSV or TSV, be
 ## sure to indicate the delimiter string with the -delimiter- argument.
 ## Similarly if the crosswalk is in an Excel file on any sheet beyond the
 ## first, set the -sheet- argument to the correct sheet.
- 
+
 set_dua(dua = &#39;&lt; dua crosswalk file name &gt;&#39;)
- 
+
 ## ---------------------------
 ## set DUA level
 ## ---------------------------
- 
+
 ## NOTES: Choose the DUA agreement crosswalk level. If you indicated that the
 ## data should be deidentified, those options, including the ID column if
 ## choosen, are included below. If you did not indicate the name of the ID
@@ -806,56 +848,41 @@ set_dua(dua = &#39;&lt; dua crosswalk file name &gt;&#39;)
 ## 
 ## If you did not indicate that the data should be deidentified, but they
 ## should be, see ?deid_dua().
- 
+
 set_dua_level(level = &#39;&lt; level name &gt;&#39;)
- 
+
 ## ---------------------------
 ## data cleaning
 ## ---------------------------
- 
+
 ## NOTES: Use standard scripts to build and clean data set here.
- 
+
 ## ---------------------------
 ## check DUA restrictions
 ## ---------------------------
- 
+
 ## NOTES: If your data frame includes restricted data elements or should have
 ## been deidentified and has not been, -check_dua_restrictions()- will return
 ## an error and stop. Fix above and rerun or set -remove_protected- arguement
 ## to TRUE to automatically remove restricted columns.
- 
+
 check_dua_restrictions(df = &#39;&lt; data frame &gt;&#39;)
- 
+
 ## ---------------------------
 ## write cleaned file
 ## ---------------------------
- 
+
 ## NOTES: Write cleaned file to disk. Select the file type (e.g., CSV, TSV,
 ## Stata, Rdata) and include additional arguments required by -haven- or base R
 ## writing functions.
- 
+
 write_dua_df(df = &#39;&lt; data frame &gt;&#39;, output_type = &#39;&lt; output file type &gt;&#39;
- 
+
 ## -----------------------------------------------------------------------------
 ## end script
-################################################################################</code></pre>
-</div>
-</div>
-
-
-
-<!-- code folding -->
-
-
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
+################################################################################
+</code></pre>
 
 </body>
+
 </html>
