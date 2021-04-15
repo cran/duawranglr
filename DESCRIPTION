@@ -1,6 +1,6 @@
 Package: duawranglr
 Title: Securely Wrangle Dataset According to Data Usage Agreement
-Version: 0.6.5
+Version: 0.6.7
 Authors@R: person("Benjamin", "Skinner",
 	          email = "btskinner@coe.ufl.edu",
 		  role = c("aut", "cre"),
@@ -15,14 +15,13 @@ Description: Create shareable data sets from raw data files that
 Depends: R (>= 3.1.2)
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports: haven, readxl, readr, digest, dplyr
-RoxygenNote: 7.0.0
+RoxygenNote: 7.1.1
 Suggests: testthat, knitr, rmarkdown
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2019-11-19 21:59:05 UTC; benski
+Packaged: 2021-04-15 14:00:06 UTC; benski
 Author: Benjamin Skinner [aut, cre] (<https://orcid.org/0000-0002-0337-7415>)
 Maintainer: Benjamin Skinner <btskinner@coe.ufl.edu>
 Repository: CRAN
-Date/Publication: 2019-11-19 22:10:03 UTC
+Date/Publication: 2021-04-15 14:20:03 UTC
